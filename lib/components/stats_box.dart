@@ -29,24 +29,46 @@ class StatsBox extends StatelessWidget {
   }
 
   List<Widget> stats() {
+    const List<String> statNames = [
+      'HP',
+      'ATK',
+      'DEF',
+      'Energy Regen',
+      'Crit. Rate',
+      'Crit. DMG',
+    ];
+    const List<String> statAmounts = [
+      '15844',
+      '1916',
+      '1158',
+      '128.8%',
+      '63.4%',
+      '205.2%',
+    ];
     final List<Widget> stats = [];
     for (int i = 0; i < 6; i++) {
-      stats.add(const Stat());
+      stats.add(Stat(statName: statNames[i], statAmount: statAmounts[i]));
     }
     return stats;
   }
 }
 
 class Stat extends StatelessWidget {
-  const Stat({super.key});
+  final String statName;
+  final String statAmount;
+  const Stat({super.key, required this.statName, required this.statAmount});
+  final double fontSize = 18;
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       height: 35,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Text('HP'), Text('1563')],
+        children: [
+          Text(statName, style: TextStyle(fontSize: fontSize)),
+          Text(statAmount, style: TextStyle(fontSize: fontSize)),
+        ],
       ),
     );
   }

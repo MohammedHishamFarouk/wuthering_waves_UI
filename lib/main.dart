@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wuthering_waves_ui_clone/character_view_page.dart';
+import 'package:wuthering_waves_ui_clone/screens/character_view_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: const CharacterViewPage(),
+      home: const CharacterViewScreen(),
     );
   }
 }

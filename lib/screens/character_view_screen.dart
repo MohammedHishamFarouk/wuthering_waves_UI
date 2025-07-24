@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wuthering_waves_ui_clone/stats_box.dart';
+import 'package:wuthering_waves_ui_clone/components/stats_box.dart';
 
-class CharacterViewPage extends StatelessWidget {
-  const CharacterViewPage({super.key});
+class CharacterViewScreen extends StatelessWidget {
+  const CharacterViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
