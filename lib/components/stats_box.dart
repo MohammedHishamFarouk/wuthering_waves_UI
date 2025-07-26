@@ -16,12 +16,14 @@ class StatsBox extends StatelessWidget {
             onPressed: () {},
             style: FilledButton.styleFrom(
               backgroundColor: Colors.white12,
+              overlayColor: Colors.transparent,
+              elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
               fixedSize: const Size(402, 34),
             ),
-            child: const Icon(Icons.more_horiz),
+            child: const Icon(Icons.more_horiz, color: Colors.white, size: 24),
           ),
         ],
       ),
@@ -29,6 +31,14 @@ class StatsBox extends StatelessWidget {
   }
 
   List<Widget> stats() {
+    const List<String> statIcons = [
+      'assets/icons/stats_icons/HP.png',
+      'assets/icons/stats_icons/ATK.png',
+      'assets/icons/stats_icons/DEF.png',
+      'assets/icons/stats_icons/ER.png',
+      'assets/icons/stats_icons/CR.png',
+      'assets/icons/stats_icons/CD.png',
+    ];
     const List<String> statNames = [
       'HP',
       'ATK',
@@ -47,7 +57,13 @@ class StatsBox extends StatelessWidget {
     ];
     final List<Widget> stats = [];
     for (int i = 0; i < 6; i++) {
-      stats.add(Stat(statName: statNames[i], statAmount: statAmounts[i]));
+      stats.add(
+        Stat(
+          statName: statNames[i],
+          statAmount: statAmounts[i],
+          statIcon: statIcons[i],
+        ),
+      );
     }
     return stats;
   }
@@ -56,7 +72,13 @@ class StatsBox extends StatelessWidget {
 class Stat extends StatelessWidget {
   final String statName;
   final String statAmount;
-  const Stat({super.key, required this.statName, required this.statAmount});
+  final String statIcon;
+  const Stat({
+    super.key,
+    required this.statName,
+    required this.statAmount,
+    required this.statIcon,
+  });
   final double fontSize = 18;
 
   @override
@@ -64,9 +86,11 @@ class Stat extends StatelessWidget {
     return SizedBox(
       height: 35,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        spacing: 4,
         children: [
+          Image.asset(statIcon, height: 18, width: 18),
           Text(statName, style: TextStyle(fontSize: fontSize)),
+          const Spacer(),
           Text(statAmount, style: TextStyle(fontSize: fontSize)),
         ],
       ),
