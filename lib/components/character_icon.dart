@@ -10,10 +10,12 @@ class CharacterIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
+        CustomPaint(painter: IconBorder(), size: const Size(80, 80)),
         Container(
-          height: 80,
-          width: 80,
+          height: 70,
+          width: 70,
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -27,25 +29,23 @@ class CharacterIcon extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-
-        CustomPaint(painter: IconBorder(), size: const Size(80, 80)),
       ],
     );
   }
 }
 // radius: i == 0 ? 42 : 38,
-// backgroundImage: AssetImage('assets/icons/ch_icons/ch${i + 1}.webp'),
 
 class IconBorder extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint1 = Paint();
-    final Paint paint2 = Paint();
-    paint2.color = Colors.red;
-    paint1.shader = ui.Gradient.linear(
+    final Paint gradientPaint = Paint();
+    final Paint normalPaint = Paint();
+    normalPaint.color = const Color(0xFFA99537).withValues(alpha: 0.3);
+    gradientPaint.shader = ui.Gradient.linear(
       Offset.zero,
       Offset(size.width, size.height),
-      [Colors.black.withOpacity(0), Colors.yellow],
+      [Colors.transparent, const Color(0xFFB1AB7A), const Color(0xFFCCA40F)],
+      [0, 0.5, 1],
     );
     final outRect = Rect.fromCenter(
       center: Offset(size.width / 2, size.height / 2),
@@ -60,8 +60,9 @@ class IconBorder extends CustomPainter {
     canvas.drawDRRect(
       RRect.fromRectAndRadius(outRect, const Radius.circular(40)),
       RRect.fromRectAndRadius(inRect, const Radius.circular(40)),
-      paint1,
+      gradientPaint,
     );
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), 35, normalPaint);
   }
 
   @override

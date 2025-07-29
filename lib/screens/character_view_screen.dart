@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wuthering_waves_ui_clone/components/character_icon.dart';
 import 'package:wuthering_waves_ui_clone/components/stats_box.dart';
 
 class CharacterViewScreen extends StatelessWidget {
@@ -21,8 +22,8 @@ class CharacterViewScreen extends StatelessWidget {
             padding: const EdgeInsets.only(
               left: 60,
               right: 60,
-              top: 48,
               bottom: 64,
+              top: 48,
             ),
             child: Row(
               children: [
@@ -62,12 +63,30 @@ class CharacterViewScreen extends StatelessWidget {
                   ],
                 ),
                 const Column(),
-                const Column(),
+                const Spacer(),
+                SizedBox(
+                  width: 80,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: 9,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 18),
+                    itemBuilder: (context, index) => charactersOwned()[index],
+                  ),
+                ),
               ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  List<Widget> charactersOwned() {
+    final List<Widget> characters = [];
+    for (int i = 0; i < 9; i++) {
+      characters.add(CharacterIcon(i: i));
+    }
+    return characters;
   }
 }

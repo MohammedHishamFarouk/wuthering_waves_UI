@@ -5,13 +5,12 @@ class StatsBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> fullStats = stats();
     return SizedBox(
       height: 266,
       width: 402,
       child: Column(
         children: [
-          ...fullStats,
+          ...stats(),
           FilledButton(
             onPressed: () {},
             style: FilledButton.styleFrom(
@@ -56,7 +55,7 @@ class StatsBox extends StatelessWidget {
       '205.2%',
     ];
     final List<Widget> stats = [];
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < statNames.length; i++) {
       stats.add(
         Stat(
           statName: statNames[i],
