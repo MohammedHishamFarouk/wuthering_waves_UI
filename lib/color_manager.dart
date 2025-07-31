@@ -10,4 +10,5 @@ class ColorManager {
     begin: Alignment.bottomRight,
     end: Alignment.topLeft,
   );
+  static const Color yellowOrange = Color(0xffCCB9A1);
 }
