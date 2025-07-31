@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wuthering_waves_ui_clone/assets.dart';
 import 'package:wuthering_waves_ui_clone/character_stats.dart';
 import 'package:wuthering_waves_ui_clone/components/character_icon.dart';
+import 'package:wuthering_waves_ui_clone/components/tabs.dart';
 
 class CharacterViewScreen extends StatelessWidget {
   const CharacterViewScreen({super.key});
@@ -18,6 +21,22 @@ class CharacterViewScreen extends StatelessWidget {
               ),
             ),
           ),
+          const Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: EdgeInsets.only(right: 30.0),
+              child: Text('User ID:508372143', style: TextStyle(fontSize: 18)),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Row(
+              children: [
+                SvgPicture.asset(Assets.svgTabIcons[0]),
+                const Text('OverView'),
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(
               left: 46,
@@ -27,7 +46,7 @@ class CharacterViewScreen extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Column(),
+                const Tabs(),
                 const CharacterStats(),
                 const Spacer(),
                 const Column(),

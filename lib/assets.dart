@@ -15,4 +15,13 @@ class Assets {
     'Crit. Rate',
     'Crit. DMG',
   ];
+
+  static const List<String> svgTabIcons = [
+    'assets/icons/tabs_icons/overviewIcon.svg',
+    'assets/icons/tabs_icons/sword icon.svg',
+    'assets/icons/tabs_icons/echoIcon.svg',
+    'assets/icons/tabs_icons/skillsIcon.svg',
+    'assets/icons/tabs_icons/sequenceIcon.svg',
+    'assets/icons/tabs_icons/infoIcon.svg',
+  ];
 }
