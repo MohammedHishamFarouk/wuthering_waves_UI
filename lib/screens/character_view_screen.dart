@@ -47,6 +47,7 @@ class CharacterViewScreen extends StatelessWidget {
             child: Row(
               children: [
                 const Tabs(),
+                const SizedBox(width: 20),
                 const CharacterStats(),
                 const Spacer(),
                 const Column(),

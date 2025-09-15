@@ -10,6 +10,7 @@ class CharacterStats extends StatelessWidget {
     return Column(
       children: [
         const StatsBox(),
+        const CombatRoles(),
         const Spacer(),
         FilledButton(
           onPressed: () {},
@@ -17,7 +18,7 @@ class CharacterStats extends StatelessWidget {
             backgroundColor: Colors.white,
             maximumSize: const Size(402, 58),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(4),
             ),
             padding: EdgeInsets.zero,
           ),
@@ -40,6 +41,67 @@ class CharacterStats extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CombatRoles extends StatelessWidget {
+  const CombatRoles({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 398,
+      height: 70,
+      child: Stack(
+        children: [
+          Container(color: Colors.white.withValues(alpha: 0.03)),
+          Container(
+            height: 20,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.white10, Colors.transparent],
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+              ),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(8),
+                bottomRight: Radius.circular(8),
+              ),
+            ),
+            margin: const EdgeInsets.only(top: 7),
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 4.0),
+                child: Text('Combat Roles', style: TextStyle(fontSize: 20)),
+              ),
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 17,
+                child: Icon(Icons.more_horiz_sharp, color: Colors.black),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Row(
+              children: List.generate(
+                2,
+                (index) => const Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: CircleAvatar(
+                    radius: 16,
+                    backgroundColor: Colors.white10,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
