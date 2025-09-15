@@ -90,11 +90,15 @@ class CombatRoles extends StatelessWidget {
             child: Row(
               children: List.generate(
                 2,
-                (index) => const Padding(
-                  padding: EdgeInsets.all(4.0),
-                  child: CircleAvatar(
-                    radius: 16,
-                    backgroundColor: Colors.white10,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Container(
+                    width: 32,
+                    height: 32,
+                    decoration: BoxDecoration(
+                      color: Colors.white10,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
                   ),
                 ),
               ),
