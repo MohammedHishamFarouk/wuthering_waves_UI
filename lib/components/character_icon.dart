@@ -3,19 +3,20 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class CharacterIcon extends StatelessWidget {
-  final int i;
+  final String asset;
 
-  const CharacterIcon({super.key, required this.i});
+  const CharacterIcon({super.key, required this.asset});
 
   @override
   Widget build(BuildContext context) {
+    const double size = 80;
     return Stack(
       alignment: Alignment.center,
       children: [
-        CustomPaint(painter: IconBorder(), size: const Size(80, 80)),
+        CustomPaint(painter: IconBorder(), size: const Size(size, size)),
         Container(
-          height: 70,
-          width: 70,
+          height: size - 10,
+          width: size - 10,
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -24,10 +25,7 @@ class CharacterIcon extends StatelessWidget {
               topRight: Radius.circular(40),
             ),
           ),
-          child: Image(
-            image: AssetImage('assets/icons/ch_icons/ch${i + 1}.webp'),
-            fit: BoxFit.cover,
-          ),
+          child: Image(image: AssetImage(asset), fit: BoxFit.cover),
         ),
       ],
     );
@@ -49,20 +47,24 @@ class IconBorder extends CustomPainter {
     );
     final outRect = Rect.fromCenter(
       center: Offset(size.width / 2, size.height / 2),
-      width: 80,
-      height: 80,
+      width: size.width,
+      height: size.height,
     );
     final inRect = Rect.fromCenter(
       center: Offset(size.width / 2, size.height / 2),
-      width: 75,
-      height: 75,
+      width: size.width - 5,
+      height: size.height - 5,
     );
     canvas.drawDRRect(
       RRect.fromRectAndRadius(outRect, const Radius.circular(40)),
       RRect.fromRectAndRadius(inRect, const Radius.circular(40)),
       gradientPaint,
     );
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2), 35, normalPaint);
+    canvas.drawCircle(
+      Offset(size.width / 2, size.height / 2),
+      (size.width / 2) - 5,
+      normalPaint,
+    );
   }
 
   @override

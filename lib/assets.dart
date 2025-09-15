@@ -24,4 +24,18 @@ class Assets {
     'assets/icons/tabs_icons/sequenceIcon.svg',
     'assets/icons/tabs_icons/infoIcon.svg',
   ];
+
+  static const List<String> chIcons = [
+    'assets/icons/ch_icons/T_IconRoleHead150_4.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_5.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_7.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_8.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_9.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_10.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_11.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_1.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_3.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_2.png',
+    'assets/icons/ch_icons/T_IconRoleHead150_12.png',
+  ];
 }

@@ -29,7 +29,7 @@ class CharacterViewScreen extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.93, -1),
+            alignment: const Alignment(-0.93, -1),
             child: Row(
               spacing: 5,
               mainAxisSize: MainAxisSize.min,
@@ -62,7 +62,7 @@ class CharacterViewScreen extends StatelessWidget {
                 SizedBox(
                   width: 80,
                   child: Column(
-                    spacing: 68,
+                    spacing: 35,
                     children: [
                       const Image(
                         image: AssetImage('assets/icons/exitIcon.png'),
@@ -72,10 +72,15 @@ class CharacterViewScreen extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: charactersOwned().length,
                           separatorBuilder: (context, index) =>
-                              const SizedBox(height: 18),
+                              const SizedBox(height: 13),
                           itemBuilder: (context, index) =>
                               charactersOwned()[index],
                         ),
+                      ),
+                      SvgPicture.asset(
+                        'assets/icons/showAllCharaIcon.svg',
+                        height: 60,
+                        width: 60,
                       ),
                     ],
                   ),
@@ -90,8 +95,8 @@ class CharacterViewScreen extends StatelessWidget {
 
   List<Widget> charactersOwned() {
     final List<Widget> characters = [];
-    for (int i = 0; i < 9; i++) {
-      characters.add(CharacterIcon(i: i));
+    for (var asset in Assets.chIcons) {
+      characters.add(CharacterIcon(asset: asset));
     }
     return characters;
   }
