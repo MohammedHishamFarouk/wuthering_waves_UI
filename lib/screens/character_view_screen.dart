@@ -29,11 +29,18 @@ class CharacterViewScreen extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment.topLeft,
+            alignment: Alignment(-0.93, -1),
             child: Row(
+              spacing: 5,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                SvgPicture.asset(Assets.svgTabIcons[0]),
-                const Text('OverView'),
+                SvgPicture.asset(
+                  Assets.svgTabIcons[0],
+                  width: 42,
+                  height: 42,
+                  color: Colors.white70,
+                ),
+                const Text('Overview', style: TextStyle(fontSize: 20)),
               ],
             ),
           ),
