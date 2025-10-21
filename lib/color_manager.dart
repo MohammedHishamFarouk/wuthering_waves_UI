@@ -8,7 +8,7 @@ class ColorManager {
       Colors.black.withValues(alpha: 0),
     ],
     begin: Alignment.bottomRight,
-    end: Alignment.topLeft
+    end: Alignment.topLeft,
   );
   static const Color yellowOrange = Color(0xffCCB9A1);
 }
