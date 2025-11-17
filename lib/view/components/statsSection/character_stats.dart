@@ -12,6 +12,19 @@ class CharacterStats extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              'assets/element_frame.png',
+              height: 80,
+              width: 80,
+              color: Colors.white12,
+            ),
+            Image.asset('assets/Havoc.png', height: 60, width: 60),
+          ],
+        ),
+        const SizedBox(height: 12),
         const AscensionLv(),
         RichText(
           text: const TextSpan(
