@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wuthering_waves_ui_clone/assets.dart';
 import 'package:wuthering_waves_ui_clone/view/components/character_icon.dart';
-import 'package:wuthering_waves_ui_clone/view/components/character_stats.dart';
+import 'package:wuthering_waves_ui_clone/view/components/statsSection/character_stats.dart';
 import 'package:wuthering_waves_ui_clone/view/components/tabs.dart';
 
 class CharacterViewScreen extends StatelessWidget {
