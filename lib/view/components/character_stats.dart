@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:wuthering_waves_ui_clone/view/components/stats_box.dart';
 
@@ -7,7 +9,33 @@ class CharacterStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(
+          height: 16,
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return Transform.rotate(
+                angle: -math.pi / 4,
+                child: Container(
+                  width: 16,
+                  padding: const EdgeInsets.all(2),
+                  margin: const EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white),
+                  ),
+                  child: Container(
+                    decoration: const BoxDecoration(color: Colors.white),
+                  ),
+                ),
+              );
+            },
+            itemCount: 6,
+          ),
+        ),
+        const SizedBox(height: 16),
         const StatsBox(),
         const CombatRoles(),
         const Spacer(),
@@ -29,7 +57,7 @@ class CharacterStats extends StatelessWidget {
               Text(
                 'Level Up',
                 style: TextStyle(
-                  color: Colors.black54,
+                  color: Colors.black,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),

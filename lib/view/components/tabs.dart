@@ -36,7 +36,7 @@ class Tab extends StatelessWidget {
         SizedBox(width: 76, child: SvgPicture.asset(Assets.svgTabIcons[index])),
         Container(
           width: 3,
-          height: 135,
+          height: 130,
           color: isSelected ? ColorManager.yellowOrange : Colors.transparent,
         ),
       ],
