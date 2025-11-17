@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'components/stats_box.dart';
+import 'package:wuthering_waves_ui_clone/view/components/stats_box.dart';
 
 class CharacterStats extends StatelessWidget {
   const CharacterStats({super.key});

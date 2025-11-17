@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wuthering_waves_ui_clone/screens/character_view_screen.dart';
+import 'package:wuthering_waves_ui_clone/view/screens/character_view_screen.dart';
 
 void main() {
   runApp(const MyApp());

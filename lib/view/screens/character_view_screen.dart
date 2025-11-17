@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wuthering_waves_ui_clone/assets.dart';
-import 'package:wuthering_waves_ui_clone/character_stats.dart';
-import 'package:wuthering_waves_ui_clone/components/character_icon.dart';
-import 'package:wuthering_waves_ui_clone/components/tabs.dart';
+import 'package:wuthering_waves_ui_clone/view/components/character_icon.dart';
+import 'package:wuthering_waves_ui_clone/view/components/character_stats.dart';
+import 'package:wuthering_waves_ui_clone/view/components/tabs.dart';
 
 class CharacterViewScreen extends StatelessWidget {
   const CharacterViewScreen({super.key});
@@ -25,22 +25,23 @@ class CharacterViewScreen extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: Padding(
               padding: EdgeInsets.only(right: 30.0),
-              child: Text('User ID:508372143', style: TextStyle(fontSize: 18)),
+              child: Text('', style: TextStyle(fontSize: 18)),
             ),
           ),
-          Align(
-            alignment: const Alignment(-0.93, -1),
+          Padding(
+            padding: const EdgeInsets.only(top: 25, left: 66, right: 70),
             child: Row(
               spacing: 5,
-              mainAxisSize: MainAxisSize.min,
               children: [
                 SvgPicture.asset(
                   Assets.svgTabIcons[0],
-                  width: 42,
-                  height: 42,
+                  width: 36,
+                  height: 36,
                   color: Colors.white70,
                 ),
                 const Text('Overview', style: TextStyle(fontSize: 20)),
+                const Expanded(child: SizedBox()),
+                const Image(image: AssetImage('assets/icons/exitIcon.png')),
               ],
             ),
           ),
@@ -49,7 +50,7 @@ class CharacterViewScreen extends StatelessWidget {
               left: 46,
               right: 60,
               bottom: 64,
-              top: 40,
+              top: 134,
             ),
             child: Row(
               children: [
@@ -64,9 +65,6 @@ class CharacterViewScreen extends StatelessWidget {
                   child: Column(
                     spacing: 35,
                     children: [
-                      const Image(
-                        image: AssetImage('assets/icons/exitIcon.png'),
-                      ),
                       Expanded(
                         child: ListView.separated(
                           shrinkWrap: true,
