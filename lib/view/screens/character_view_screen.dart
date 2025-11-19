@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_3d_controller/flutter_3d_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wuthering_waves_ui_clone/assets.dart';
 import 'package:wuthering_waves_ui_clone/view/components/character_icon.dart';
@@ -10,6 +11,7 @@ class CharacterViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Flutter3DController controller = Flutter3DController();
     return Scaffold(
       body: Stack(
         children: [
@@ -18,6 +20,17 @@ class CharacterViewScreen extends StatelessWidget {
               image: DecorationImage(
                 image: AssetImage('assets/background.png'),
                 fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              height: 10000,
+              child: Flutter3DViewer(
+                controller: controller,
+                progressBarColor: Colors.red,
+                src: 'assets/phrolova_wuthering_waves.glb',
               ),
             ),
           ),
@@ -52,13 +65,12 @@ class CharacterViewScreen extends StatelessWidget {
               bottom: 64,
               top: 134,
             ),
+
             child: Row(
               children: [
                 const Tabs(),
                 const SizedBox(width: 20),
                 const CharacterStats(),
-                const Spacer(),
-                const Column(),
                 const Spacer(),
                 SizedBox(
                   width: 80,
