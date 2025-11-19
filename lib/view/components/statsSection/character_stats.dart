@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:wuthering_waves_ui_clone/view/components/statsSection/ascenion_lv.dart';
 import 'package:wuthering_waves_ui_clone/view/components/statsSection/combat_roles.dart';
@@ -12,16 +14,44 @@ class CharacterStats extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Stack(
-          alignment: Alignment.center,
+        Row(
           children: [
-            Image.asset(
-              'assets/element_frame.png',
-              height: 80,
-              width: 80,
-              color: Colors.white12,
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
+                  'assets/element_frame.png',
+                  height: 80,
+                  width: 80,
+                  color: Colors.white12,
+                ),
+                Image.asset('assets/Havoc.png', height: 60, width: 60),
+                ImageFiltered(
+                  imageFilter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    color: Colors.redAccent,
+                  ),
+                ),
+              ],
             ),
-            Image.asset('assets/Havoc.png', height: 60, width: 60),
+            RichText(
+              text: const TextSpan(
+                text: 'Phrolova',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+                children: [
+                  TextSpan(
+                    text: '\nHavoc',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xff9C986E),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 12),
